@@ -6,6 +6,9 @@ Description: A WordPress plugin to allow Speaker Deck users embed their Presenta
 Author: webord
 Author URI: http://en.bordoni.me/plugins/speakerdeck
 Version: 1.0
+Text Domain: speakerdeck
+Domain Path: /lang
+License: GNU General Public License 2.0 (GPL) http://www.gnu.org/licenses/gpl.html
 */
 
 class SpeakerDeck {
