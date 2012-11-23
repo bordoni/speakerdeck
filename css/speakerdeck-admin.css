@@ -1,0 +1,25 @@
+#adminmenu .toplevel_page_speakerdeck .wp-menu-image a {
+    background: transparent url('../img/speakerdeck.png') 5px 4px no-repeat;
+}
+#icon-speakerdeck {
+    background: transparent url('../img/speakerdeck-32.png') center center no-repeat;
+}
+
+
+#speakerdeck-tinymce-form {
+    padding: 10px;
+}
+
+#speakerdeck-tinymce-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.speakerdeck-form-items {
+    width: 100%;
+}
+
+#speakerdeck-tinymce-form .button-primary {
+    margin-top: 25px;
+    float: right;
+}

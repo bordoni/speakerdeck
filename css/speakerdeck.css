@@ -1,0 +1,50 @@
+.speakerdeck-scrub {
+    display: block;
+    position: relative;
+    float: left;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0 0 10px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0;
+}
+.speakerdeck-scrub > .speakerdeck-timeline.speakerdeck-visible {
+    display: block;
+    position: relative;
+}
+.speakerdeck-scrub > .speakerdeck-timeline {
+    border-radius: 4px;
+    display: none;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 2;
+    max-width: 100%;
+}
+.speakerdeck-scrub > .speakerdeck-scrubber {
+    background: linear-gradient(#000000, #222222) repeat scroll 0 0 transparent;
+    border-radius: 4px 4px 4px 4px;
+    bottom: 15px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+    height: 6px;
+    left: 15px;
+    opacity: 0;
+    padding: 1px;
+    position: absolute;
+    right: 15px;
+    transition: opacity 0.2s linear 0s;
+    visibility: hidden;
+    z-index: 3;
+}
+
+.speakerdeck-scrub:hover > .speakerdeck-scrubber {
+    opacity: 1;
+    visibility: visible;
+}
+
+.speakerdeck-scrub > .speakerdeck-scrubber > .speakerdeck-scrubbed {
+    background: linear-gradient(#38AD75, #0E6355) repeat scroll 0 0 transparent;
+    border-radius: 3px;
+    height: 6px;
+    min-width: 6px;
+}
