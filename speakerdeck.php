@@ -80,12 +80,12 @@ class SpeakerDeck {
         $this->tabs[$this->keys->configuration] = __('Configuration', 'speakerdeck');
         
         register_setting( $this->keys->configuration, $this->keys->configuration, array(&$this, 'prepare_configuration') );
-        add_settings_section( 'section_profile', 'Speaker Deck Profile', '__return_false', $this->keys->configuration );
-        add_settings_field( 'profile_slug', 'Slug', array( &$this, 'field_configuration_profile_slug' ), $this->keys->configuration, 'section_profile' );
-        add_settings_section( 'section_association', 'Association', '__return_false', $this->keys->configuration );
-        add_settings_field( 'association_post_types', 'Post Types', array( &$this, 'field_configuration_association_post_types' ), $this->keys->configuration, 'section_association' );
-        add_settings_section( 'section_visualization', 'Visualization', '__return_false', $this->keys->configuration );
-        add_settings_field( 'enqueue_script_style', 'CSS and JavaScript', array( &$this, 'field_configuration_enqueue_script_style' ), $this->keys->configuration, 'section_visualization' );
+        add_settings_section( 'section_profile', __('Speaker Deck Profile', 'speakerdeck'), '__return_false', $this->keys->configuration );
+        add_settings_field( 'profile_slug', __('Slug', 'speakerdeck'), array( &$this, 'field_configuration_profile_slug' ), $this->keys->configuration, 'section_profile' );
+        add_settings_section( 'section_association', __('Association', 'speakerdeck'), '__return_false', $this->keys->configuration );
+        add_settings_field( 'association_post_types', __('Post Types', 'speakerdeck'), array( &$this, 'field_configuration_association_post_types' ), $this->keys->configuration, 'section_association' );
+        add_settings_section( 'section_visualization', __('Visualization', 'speakerdeck'), '__return_false', $this->keys->configuration );
+        add_settings_field( 'enqueue_script_style', __('CSS and JavaScript', 'speakerdeck'), array( &$this, 'field_configuration_enqueue_script_style' ), $this->keys->configuration, 'section_visualization' );
 
 
         $this->tabs[$this->keys->items] = __('New Speak', 'speakerdeck');
@@ -337,7 +337,7 @@ class SpeakerDeck {
         <label for='speakerdeck-field-<?php echo $slug; ?>-css'>
         <input id='speakerdeck-field-<?php echo $slug; ?>-css' type="checkbox" name="<?php echo "{$this->keys->configuration}[enqueue_css]"; ?>" <?php echo ($this->configuration['enqueue_css']?"checked='checked' ":''); ?>/>
          Use CSS</label><br />
-        <p class="description"><?php _e("If you don't want to use the default CSS and JS, use with caution!"); ?></p>
+        <p class="description"><?php _e("If you don't want to use the default CSS and JS, use with caution!", 'speakerdeck'); ?></p>
         <?php
     }
 
@@ -346,7 +346,7 @@ class SpeakerDeck {
         $slug = 'url';
         ?>
         <input id='speakerdeck-field-<?php echo $slug; ?>' type="text" name="<?php echo "{$this->keys->items}[{$slug}]"; ?>" value="" class="regular-text" />
-        <p class="description"><?php echo sprintf("%s <a href='#enable-fields' id='speakerdeck-enable-fields'>%s</a>", __('Paste the url above and I will try to populate the rest of the fields or'), __('enable the fields')); ?></p>
+        <p class="description"><?php echo sprintf("%s <a href='#enable-fields' id='speakerdeck-enable-fields'>%s</a>", __('Paste the url above and I will try to populate the rest of the fields or', 'speakerdeck'), __('enable the fields', 'speakerdeck')); ?></p>
         <?php
     }
     
