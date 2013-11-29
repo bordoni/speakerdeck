@@ -28,7 +28,7 @@ var validateUrl = function (str) {
                     return;
                 if (url.split("/")[2]!=='speakerdeck.com' && url.split("/")[2]!=='www.speakerdeck.com')
                     return;
-                
+
                 var reg = /.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/,
                     match = reg.exec( url );
                 if (match === null)
@@ -49,11 +49,12 @@ var validateUrl = function (str) {
                             ratio: $embed.attr('data-ratio'),
                             download: $talk.find('#share_pdf').attr('href')
                         };
-                    data.url = 'https://speakerdeck.com/search?q=' + encodeURIComponent([search, " ", slide.title].join(''))
+                    data.url = ['https://speakerdeck.com/player/', slide.id].join('');
                     $.post(ajaxurl, data, function(response) {
-                        var $response = $(response).filter('#content'),
-                            $talk = $response.find(['.talk[data-id="', slide.id, '"]'].join(''));
-                        slide.total = parseInt($talk.attr('data-slide-count'));
+                        var $response = $(response).filter('script').eq(1),
+                            script = $response.text().split("\n")[1];
+                        eval(script);
+                        slide.total = talk.slides.length;
                         $('#speakerdeck-field-id').val(slide.id).prop('disabled',false);
                         $('#speakerdeck-field-title').val(slide.title).prop('disabled',false);
                         $('#speakerdeck-field-ratio').val(slide.ratio).prop('disabled',false);

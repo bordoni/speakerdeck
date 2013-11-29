@@ -215,13 +215,18 @@ class SpeakerDeck {
             array(
                 "show" => 'slides',
                 "id" => false,
+                "link" => false
             ),
             $atts
         );
 
         $deck = (object) $this->items[$settings->id];
+        if($settings->link===false)
+            $link = $deck->url;
+        else
+            $link = $settings->link;
         if ($settings->show == 'scrub'){
-            return "<a href='{$deck->url}' class='speakerdeck-scrub' data-deck='" . json_encode($deck) . "'></a>";
+            return "<a href='{$link}' class='speakerdeck-scrub' data-deck='" . json_encode($deck) . "'></a>";
         } else {
             $wp_oembed = _wp_oembed_get_object();
             return $wp_oembed->get_html($deck->url);
